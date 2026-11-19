@@ -24,6 +24,14 @@ enum class TOKENID {
     LITERAL = 14
 };
 
+
+struct token {
+    TOKENID type;
+    std::string value;
+    int column;
+    int line;
+};
+
 void tokenise() {
  // later
 }
