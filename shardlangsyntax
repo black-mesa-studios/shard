@@ -1,0 +1,60 @@
+Syntax for shard programming language.
+The syntax should include ; at the end of a line, like so: sraka;
+
+// comment \\
+
+// multi
+line
+comment
+\\
+
+#include (sraka-taka);
+#from (sraka-taka) include (papier-toaletowy);
+
+def myFunction(argument1, argument2){
+    some code;
+    return value;
+}
+
+def returnSraka(str arg1){
+    return arg1 += "sraka";
+}
+
+int jelito_grube = 10; 
+
+for(kg_gowno in jelito_grube){
+    kg_gowno++;
+    print(kg_gowno);
+}
+
+for(gowno in range(1, 10)){
+    gowno++;
+    print(gowno)
+}
+
+while(condition){
+    some code;
+    if(condition1){
+        some code;
+        break;
+    }
+    elif(condition2){
+        some code;
+        continue;
+    }
+    else{
+        some code;
+        break;
+    }
+}
+
+int/float/bool/str/char variable;
+float Celsius = getinput(float);
+float Fahrenheit;
+
+Fahrenheit = (Celsius * 9/5) + 32;
+
+str pipi = returnSraka("Kaczor to ");
+
+print(returnSraka("Tusk to "));
+print(f"{Celsius} degrees in Fahrenheit is {Fahrenheit}.");
