@@ -5,7 +5,7 @@
 
 namespace fs = std::filesystem;
 
-enum class TOKEN {
+enum class TOKENID {
     ENDEXPR = 0,
     FUNCTION = 1,
     OPEN = 2,
