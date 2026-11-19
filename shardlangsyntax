@@ -1,60 +1,102 @@
-Syntax for shard programming language.
-The syntax should include ; at the end of a line, like so: sraka;
+Shard Language Syntax
+=====================
 
-// comment \\
+This document describes the proposed syntax for Shard. It is a reference
+draft; implementation details may change as the language develops.
 
-// multi
-line
-comment
+Lexical conventions
+-------------------
+
+Statements end with a semicolon. Braces delimit blocks. Identifiers begin with
+a letter or underscore and may contain letters, digits, and underscores.
+
+// Single-line comment \\
+
+//
+   Multi-line comment
 \\
 
-#include (sraka-taka);
-#from (sraka-taka) include (papier-toaletowy);
+Modules
+-------
 
-def myFunction(argument1, argument2){
-    some code;
-    return value;
+#include ("math");
+#from ("math") include ("sqrt");
+
+Functions
+---------
+
+Function parameters use a type followed by a name. The return type is inferred
+from the returned value in this draft.
+
+def greet(str name) {
+    return "Hello, " + name;
 }
 
-def returnSraka(str arg1){
-    return arg1 += "sraka";
+def add(int left, int right) {
+    return left + right;
 }
 
-int jelito_grube = 10; 
+Variables and types
+-------------------
 
-for(kg_gowno in jelito_grube){
-    kg_gowno++;
-    print(kg_gowno);
+Supported types in this draft are int, float, bool, str, and char.
+
+int item_count = 10;
+float temperature = 21.5;
+bool is_ready = true;
+str city = "Reykjavik";
+char initial = 'R';
+
+Control flow
+------------
+
+if (item_count > 0) {
+    print(item_count);
+} elif (item_count == 0) {
+    print("No items");
+} else {
+    print("Invalid count");
 }
 
-for(gowno in range(1, 10)){
-    gowno++;
-    print(gowno)
+while (item_count > 0) {
+    item_count--;
 }
 
-while(condition){
-    some code;
-    if(condition1){
-        some code;
-        break;
-    }
-    elif(condition2){
-        some code;
-        continue;
-    }
-    else{
-        some code;
-        break;
-    }
+for (value in values) {
+    print(value);
 }
 
-int/float/bool/str/char variable;
-float Celsius = getinput(float);
-float Fahrenheit;
+for (index in range(0, 10)) {
+    print(index);
+}
 
-Fahrenheit = (Celsius * 9/5) + 32;
+break and continue may be used inside loops.
 
-str pipi = returnSraka("Kaczor to ");
+Pattern matching
+----------------
 
-print(returnSraka("Tusk to "));
-print(f"{Celsius} degrees in Fahrenheit is {Fahrenheit}.");
+Each case ends with a semicolon-terminated statement. Cases do not fall through.
+
+match (status_code) {
+    case 200:
+        print("Success");
+    case 404:
+        print("Not found");
+    default:
+        print("Unexpected status");
+}
+
+Expressions and input
+---------------------
+
+Expressions follow conventional arithmetic precedence. Function calls use
+parentheses, and input is requested by specifying the expected type.
+
+float celsius = input(float);
+float fahrenheit = (celsius * 9 / 5) + 32;
+print(fahrenheit);
+
+Formatted strings use f-prefixed string literals. Expressions inside braces
+are evaluated and converted to strings.
+
+print(f"{celsius} degrees Celsius is {fahrenheit} degrees Fahrenheit.");
