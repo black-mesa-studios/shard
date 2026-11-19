@@ -5,6 +5,24 @@
 
 namespace fs = std::filesystem;
 
+enum class TOKEN {
+    ENDEXPR = 0,
+    FUNCTION = 1,
+    OPEN = 2,
+    CLOSE = 3,
+    SCOPEOPEN = 4,
+    SCOPECLOSE = 5,
+    IF = 6,
+    ELIF = 7,
+    ELSE = 8,
+    WHILE = 9,
+    FOR = 10,
+};
+
+void tokenise() {
+ // later
+}
+
 int main(int argc, char *argv[]) {
     if(argc < 2) {
         std::cout << "File was not passed\n";
