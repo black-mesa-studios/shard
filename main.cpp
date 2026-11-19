@@ -17,6 +17,7 @@ enum class TOKEN {
     ELSE = 8,
     WHILE = 9,
     FOR = 10,
+    PREPROC = 11
 };
 
 void tokenise() {
